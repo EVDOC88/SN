@@ -1,0 +1,59 @@
+﻿@using SN.Models.ViewModels.Account
+
+@model SN.Models.ViewModels.Account.UserViewModel
+
+
+<div class="user-info-conatiner">
+    <div class="user-info-left">
+        <img class="user-pic" src="@Model.User.Image" />
+        <div class="update-button">
+            <form method="get" asp-area="" asp-controller="AccountManager" asp-action="Edit">
+                <button>Редактировать</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="user-info-right">
+        <p class="user-full-name">@Model.User.GetFullName()</p>
+        <hr>
+        <ul class="user-info-list">
+            <li>Статус: @Model.User.Status</li>
+            <li>Дата рождения: @Model.User.BirthDate.ToShortDateString()</li>
+            <li>Информация обо мне: @Model.User.About</li>
+            <li>Email: @Model.User.Email</li>
+        </ul>
+        <hr>
+        <label>Список друзей</label>
+        <div class="user-friends">
+            
+            @if(!(Model.Friends is null) && Model.Friends.Count != 0)
+            {
+                var friendsCount = Model.Friends.Count;
+                for(var i = 0; i < friendsCount; i++)
+                {
+                    <div class="friend">
+                        <div class="user-img-container">
+                            <img src="@Model.Friends[i].Image" />
+                        </div>
+                        <label>@Model.Friends[i].GetFullName()</label>
+                        <form asp-area="" asp-controller="AccountManager" asp-action="Chat" asp-route-id="@Model.Friends[i].Id" method="post">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Чат
+                            </button>
+                        </form>
+                        <form asp-area="" asp-controller="AccountManager" asp-action="DeleteFriend" asp-route-id="@Model.Friends[i].Id" method="post">
+                            <button type="submit" class="btn btn-sm btn-primary">
+                                Удалить из друзей
+                            </button>
+                        </form>
+                    </div>
+                }
+            }
+            else
+            {
+                <label>У вас пока нет друзей</label>
+            }
+        </div>
+        <hr>
+    </div>
+</div>

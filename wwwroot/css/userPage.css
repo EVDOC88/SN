@@ -1,0 +1,99 @@
+﻿.user-info-conatiner {
+    display: flex;
+    column-gap: 3rem;
+    margin-top: 1.5rem;
+    min-width: 100%;
+    max-width: 1280px;
+}
+
+.user-info-left {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    width: 35%;
+}
+
+.user-info-right {
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+}
+
+.user-info-right hr {
+    width: 100%;
+    border: 1px dashed gray;
+    opacity: 0.3;
+}
+
+.user-pic {
+    width: 25rem;
+}
+
+.update-button {
+    width: 25rem;
+    height: 2.5rem;
+}
+
+.update-button form {
+    width: 100%;
+    height: 100%;
+}
+
+.update-button form button {
+    width: 100%;
+    height: 100%;
+    background-color: #5181b8;
+    border: none;
+    padding: 0px;
+    padding: 0px
+}
+
+.user-full-name {
+    display: inline;
+}
+
+.user-info-list {
+    display: inline;
+    list-style-type: none;
+    padding: 0px;
+}
+
+.user-friends {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 100%;
+}
+
+.user-friends .friend {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+    width: 23%;
+    align-items: baseline;
+    overflow: hidden;
+}
+
+.user-friends .friend label {
+    align-self: center;
+}
+
+.user-friends .friend .user-img-container {
+    display: flex;
+    height: 250px;
+    max-width: 180px;
+    align-self: center;
+    overflow: hidden;
+}
+
+.user-friends .friend .user-img-container img {
+    height: 100%;
+}
+
+.user-friends .friend form, .user-friends .friend button {
+    min-width: 100%;
+}
+
